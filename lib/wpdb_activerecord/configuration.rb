@@ -2,10 +2,6 @@ module WPDB
   class << self
     attr_accessor :configuration
 
-    def initialize
-      self.configuration = Configuration.new
-    end
-
     def configure
       self.configuration ||= Configuration.new
       yield(configuration) if block_given?
@@ -18,18 +14,20 @@ module WPDB
                   :user_class, :usermeta_class
 
     def initialize
-      @prefix = "wp_"
-      @post_class = "WPDB::Post"
-      @postmeta_class = "WPDB::Postmeta"
-      @term_class = "WPDB::Term"
-      @term_relationship_class = "WPDB::TermRelationship"
-      @term_taxonomy_class = "WPDB::TermTaxonomy"
-      @user_class = "WPDB::User"
-      @usermeta_class = "WPDB::Usermeta"
+      path = File.join(root, "config", "wpdb_config.yml")
+      config = File.exists?(path) ? YAML.load_file(path) : Hash.new
+      @prefix = config["WPDB_PREFIX"] || "wp_"
+      @post_class = config["WPDB_POST_CLASS"] || "WPDB::Post"
+      @postmeta_class = config["WPDB_POSTMETA_CLASS"] || "WPDB::Postmeta"
+      @term_class = config["WPDB_TERM_CLASS"] || "WPDB::Term"
+      @term_relationship_class = config["WPDB_TERM_RELATIONSHIP_CLASS"] || "WPDB::TermRelationship"
+      @term_taxonomy_class = config["WPDB_TERM_TAXONOMY_CLASS"] || "WPDB::TermTaxonomy"
+      @user_class = config["WPDB_USER_CLASS"] || "WPDB::User"
+      @usermeta_class = config["WPDB_USERMETA_CLASS"] || "WPDB::Usermeta"
     end
 
-    def test(a)
-      @prefix = a
+    def root
+      Rails.root || Pathname.new(ENV["RAILS_ROOT"] || Dir.pwd)
     end
   end
 end
