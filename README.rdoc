@@ -10,7 +10,7 @@ WordPress database and all its content via a nice ORM.
 ## Installation
 
 ```
-gem "wpdb_activerecord", git: "https://github.com/hothero/wpdb_activerecord"
+gem "wpdb_activerecord"
 ```
 
 ## Usage
