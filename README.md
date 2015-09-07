@@ -53,7 +53,24 @@ Example:
 WPDB_PREFIX: "cgjbugpbs_" # the table of WPDB::Post is cgjbugpbs_posts, not wp_posts
 WPDB_USER_CLASS: "WUser"
 
+# models/w_user.rb
+class WUser < WPDB::User
+  def hello
+    puts "world"
+  end
+end
+
 # usage
 @author = WPDB::Post.find(25).author
 @author.class_name # will get WUser, not WPDB::User
+@author.hello # world
 ```
+All setting attributes you can use: 
+
+* WPDB\_PREFIX
+* WPDB\_USER\_CLASS
+* WPDB\_POST\_CLASS
+* WPDB\_POSTMETA\_CLASS
+* WPDB\_TERM\_CLASS
+* WPDB\_TERM\_RELATIONSHIP\_CLASS
+* WPDB\_TERM\_TAXONOMY\_CLASS
