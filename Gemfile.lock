@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    wpdb_activerecord (1.0)
+    wpdb_activerecord (1.01)
+      mysql2
       mysql2 (~> 0.3)
       php-serialize (~> 1.1)
       phpass-ruby (~> 0.1)
@@ -59,7 +60,7 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.8.0)
-    mysql2 (0.3.20)
+    mysql2 (0.4.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     php-serialize (1.1.0)
@@ -94,7 +95,7 @@ GEM
     rake (10.4.2)
     sprockets (3.3.4)
       rack (~> 1.0)
-    sprockets-rails (2.3.2)
+    sprockets-rails (2.3.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
@@ -107,6 +108,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  mysql2
   php-serialize (~> 1.1)
   phpass-ruby (~> 0.1)
   wpdb_activerecord!
