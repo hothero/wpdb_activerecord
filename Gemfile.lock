@@ -1,8 +1,7 @@
 PATH
   remote: .
   specs:
-    wpdb_activerecord (1.01)
-      mysql2
+    wpdb_activerecord (1.02)
       mysql2 (~> 0.3)
       php-serialize (~> 1.1)
       phpass-ruby (~> 0.1)
@@ -108,7 +107,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  mysql2
   php-serialize (~> 1.1)
   phpass-ruby (~> 0.1)
   wpdb_activerecord!

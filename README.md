@@ -11,6 +11,7 @@ WordPress database and all its content via a nice ORM.
 
 ```
 gem "wpdb_activerecord"
+gem "mysql2", "~> 0.3.0"
 ```
 
 ## Usage

@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 # Declare your gem's dependencies in wpdb_activerecord.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
-gem "mysql2"
 gemspec
 gem 'php-serialize', '~> 1.1', require: 'php_serialize'
 gem 'phpass-ruby', '~> 0.1', require: 'phpass'
