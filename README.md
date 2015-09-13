@@ -75,3 +75,72 @@ All setting attributes you can use:
 * WPDB\_TERM\_CLASS
 * WPDB\_TERM\_RELATIONSHIP\_CLASS
 * WPDB\_TERM\_TAXONOMY\_CLASS
+
+## Table Fields ##
+### wp_posts ###
+* ID:integer
+* post_author:integer
+* post_date:datetime
+* post_date_gmt:datetime
+* post_content:text
+* post_title:string
+* post_excerpt:string
+* post_status:varchar(20)
+* post_password:varchar(20)
+* post_name:varchar(200) (post slug)
+* post_modified:datetime
+* post_modified_gmt:datetime
+* post_parent:integer
+* guid:varchar(255)
+* menu_order:integer
+* post_type:varchar(20)
+* post_mime_type:varchar(100)
+* comment_count:integer
+
+### wp_postmeta ###
+* meta_id:integer
+* post_id:integer
+* meta_key:varchar(255)
+* meta_value:text
+
+### wp_users ###
+* ID:integer
+* user_login:varchar(60)
+* user_pass:varchar(64)
+* user_nicename:varchar(50)
+* user_email:varchar(100)
+* user_url:varchar(100)
+* user_registered:datetime
+* user_status:integer
+* display_name:varchar(250)
+
+### wp_usermeta ###
+* umeta_id:integer
+* user_id:integer
+* meta_key:varchar(255)
+* meta_value:text
+
+### wp_terms ###
+* term_id:integer
+* name:varchar(200)
+* slug:varchar(200)
+* term_group:integer
+
+### wp_term_taxonomy ###
+* term_taxonomy_id:integer
+* term_id:integer
+* taxonomy:varchar(32)
+* description:text
+* parent:integer
+* count:integer
+
+### wp_term_relationships ###
+* object_id:integer
+* term_taxonomy_id:integer
+* term_order:integer
+
+### wp_options ###
+* option_id:integer
+* option_name:varchar(64)
+* option_value:text
+* autoload:varchar(20)
