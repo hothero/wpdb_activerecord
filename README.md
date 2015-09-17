@@ -50,7 +50,7 @@ Put the config file named "wpdb_activerecord.yml" in config
 Example:
 
 ```
-# config/wpdb_activerecord.yml
+# config/wpdb_config.yml
 WPDB_PREFIX: "cgjbugpbs_" # the table of WPDB::Post is cgjbugpbs_posts, not wp_posts
 WPDB_USER_CLASS: "WUser"
 
