@@ -6,6 +6,8 @@ module WPDB
     belongs_to :author, class_name: WPDB.configuration.user_class, foreign_key: "post_author"
     belongs_to :parent, class_name: WPDB.configuration.post_class
 
+    has_many :comments, foreign_key: "comment_post_ID", class_name: WPDB.configuration.comment_class
+    
     # tag / category
     has_many :term_relationships, foreign_key: "object_id", class_name: WPDB.configuration.term_relationship_class
     has_many :terms, through: :term_relationships, foreign_key: "term_id", class_name: WPDB.configuration.term_class
