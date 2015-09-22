@@ -22,6 +22,7 @@ WPDB::Post.all # Get all posts
 @post = WPDB::Post.find(75)
 @post.tags
 @post.categories
+@post.comments
 @post.attachments # No matter what type
 @post.revisions # versions
 @post.postmetas # post meta values
@@ -38,6 +39,7 @@ WPDB::Term.category # get all categories
 ```
 @user = WPDB::User.find(25)
 @user.posts
+@user.comments
 ```
 
 ## Advanced ##
@@ -66,9 +68,10 @@ end
 @author.class_name # will get WUser, not WPDB::User
 @author.hello # world
 ```
-All setting attributes you can use: 
+All setting attributes you can use:
 
 * WPDB\_PREFIX
+* WPDB\_COMMENT\_CLASS
 * WPDB\_USER\_CLASS
 * WPDB\_POST\_CLASS
 * WPDB\_POSTMETA\_CLASS
@@ -102,6 +105,29 @@ All setting attributes you can use:
 * post_id:integer
 * meta_key:varchar(255)
 * meta_value:text
+
+### wp_comments ###
+* comment_ID:integer
+* comment_post_id:integer
+* comment_author:varchar(255)
+* comment_author_email:varchar(100)
+* comment_author_url:varchar(200)
+* comment_author_IP:varchar(100)
+* comment_date:datetime
+* comment_date_gmt:datetime
+* comment_content:text
+* comment_karma:integer
+* comment_approved:varchar(20)
+* comment_agent:varchar(255)
+* comment_type:varchar(20)
+* comment_parent:bigint(20)
+* user_id:bigint(20)
+
+### wp_commentmeta ###
+* meta_id:bigint(20)
+* comment_id:bigint(20)
+* meta_key:varchar(255
+* meta_value:longtext
 
 ### wp_users ###
 * ID:integer
