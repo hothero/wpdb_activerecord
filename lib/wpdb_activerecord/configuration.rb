@@ -9,7 +9,7 @@ module WPDB
   end
 
   class Configuration
-    attr_accessor :prefix, :comment_class, :post_class, :postmeta_class, :term_class,
+    attr_accessor :prefix, :option_class, :comment_class, :post_class, :postmeta_class, :term_class,
                   :term_relationship_class, :term_taxonomy_class,
                   :user_class, :usermeta_class
 
@@ -17,6 +17,7 @@ module WPDB
       path = File.join(root, "config", "wpdb_config.yml")
       config = File.exists?(path) ? YAML.load_file(path) : Hash.new
       @prefix = config["WPDB_PREFIX"] || "wp_"
+      @option_class = config["WPDB_OPTION_CLASS"] || "WPDB::Option"
       @comment_class = config["WPDB_COMMENT_CLASS"] || "WPDB::Comment"
       @post_class = config["WPDB_POST_CLASS"] || "WPDB::Post"
       @postmeta_class = config["WPDB_POSTMETA_CLASS"] || "WPDB::Postmeta"
