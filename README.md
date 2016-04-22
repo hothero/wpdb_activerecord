@@ -33,6 +33,8 @@ WPDB::Post.all # Get all posts
 ```
 WPDB::Term.tag # get all tags
 WPDB::Term.category # get all categories
+@term = WPDB::Term.first
+@term.posts # get all the term posts
 ```
 
 ####User####
