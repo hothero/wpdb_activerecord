@@ -1,6 +1,7 @@
 require "wpdb_activerecord/configuration"
 
 require_relative "wpdb_activerecord/option"
+require_relative "wpdb_activerecord/comment"
 require_relative "wpdb_activerecord/post"
 require_relative "wpdb_activerecord/postmeta"
 require_relative "wpdb_activerecord/term"
