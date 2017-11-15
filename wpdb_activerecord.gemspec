@@ -20,6 +20,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "php-serialize", "~> 1.1"
   s.add_runtime_dependency "phpass-ruby", "~> 0.1"
 
-  s.add_dependency "rails", "~> 4.0"
-  s.add_dependency "mysql2", "~> 0.3.0"
+  s.add_runtime_dependency "rails", ">= 4.0"
+  s.add_runtime_dependency "mysql2", ">= 0.3.0"
 end
