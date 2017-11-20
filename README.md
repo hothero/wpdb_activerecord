@@ -136,12 +136,6 @@ WPDB::Comment
 * comment_parent:bigint(20)
 * user_id:bigint(20)
 
-### wp_commentmeta ###
-* meta_id:bigint(20)
-* comment_id:bigint(20)
-* meta_key:varchar(255
-* meta_value:longtext
-
 ### wp_users
 
 WPDB::User
