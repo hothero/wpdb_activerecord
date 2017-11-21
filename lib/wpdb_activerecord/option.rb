@@ -4,7 +4,7 @@ module WPDB
     self.primary_key = :option_id
 
     def self.get_option(name)
-      self.where(option_name: name).first.option_value
+      where(option_name: name).first&.option_value
     end
   end
 end
