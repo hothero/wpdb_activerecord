@@ -16,8 +16,9 @@ gem "mysql2", "~> 0.3.0"
 
 ## Usage
 
-####Post###
-```
+#### Post
+
+```ruby
 WPDB::Post.all # Get all posts
 @post = WPDB::Post.find(75)
 @post.tags
@@ -29,22 +30,25 @@ WPDB::Post.all # Get all posts
 @post.author # get user (WPDB::User)
 ```
 
-####Term####
-```
+#### Term
+
+```ruby
 WPDB::Term.tag # get all tags
 WPDB::Term.category # get all categories
 @term = WPDB::Term.first
 @term.posts # get all the term posts
 ```
 
-####User####
-```
+#### User
+
+```ruby
 @user = WPDB::User.find(25)
 @user.posts
 @user.comments
 ```
 
-## Advanced ##
+## Advanced
+
 Sometime we will custom the table name prefix (default is wp_) or inherit to use and redefine something.
 
 You can define your yaml file to setup prefix and association class_name.
@@ -53,7 +57,7 @@ Put the config file named "wpdb_activerecord.yml" in config
 
 Example:
 
-```
+```ruby
 # config/wpdb_config.yml
 WPDB_PREFIX: "cgjbugpbs_" # the table of WPDB::Post is cgjbugpbs_posts, not wp_posts
 WPDB_USER_CLASS: "WUser"
@@ -81,8 +85,11 @@ All setting attributes you can use:
 * WPDB\_TERM\_RELATIONSHIP\_CLASS
 * WPDB\_TERM\_TAXONOMY\_CLASS
 
-## Table Fields ##
-### wp_posts ###
+## Table Fields
+
+### wp_posts
+
+WPDB::Post
 * ID:integer
 * post_author:integer
 * post_date:datetime
@@ -102,13 +109,17 @@ All setting attributes you can use:
 * post_mime_type:varchar(100)
 * comment_count:integer
 
-### wp_postmeta ###
+### wp_postmeta
+
+WPDB::Postmeta
 * meta_id:integer
 * post_id:integer
 * meta_key:varchar(255)
 * meta_value:text
 
-### wp_comments ###
+### wp_comments
+
+WPDB::Comment
 * comment_ID:integer
 * comment_post_id:integer
 * comment_author:varchar(255)
@@ -125,13 +136,9 @@ All setting attributes you can use:
 * comment_parent:bigint(20)
 * user_id:bigint(20)
 
-### wp_commentmeta ###
-* meta_id:bigint(20)
-* comment_id:bigint(20)
-* meta_key:varchar(255
-* meta_value:longtext
+### wp_users
 
-### wp_users ###
+WPDB::User
 * ID:integer
 * user_login:varchar(60)
 * user_pass:varchar(64)
@@ -142,19 +149,25 @@ All setting attributes you can use:
 * user_status:integer
 * display_name:varchar(250)
 
-### wp_usermeta ###
+### wp_usermeta
+
+WPDB::Usermeta
 * umeta_id:integer
 * user_id:integer
 * meta_key:varchar(255)
 * meta_value:text
 
-### wp_terms ###
+### wp_terms
+
+WPDB::Term
 * term_id:integer
 * name:varchar(200)
 * slug:varchar(200)
 * term_group:integer
 
-### wp_term_taxonomy ###
+### wp_term_taxonomy
+
+WPDB::TermTaxonomy
 * term_taxonomy_id:integer
 * term_id:integer
 * taxonomy:varchar(32)
@@ -162,12 +175,16 @@ All setting attributes you can use:
 * parent:integer
 * count:integer
 
-### wp_term_relationships ###
+### wp_term_relationships
+
+WPDB::TermRelationship
 * object_id:integer
 * term_taxonomy_id:integer
 * term_order:integer
 
-### wp_options ###
+### wp_options
+
+WPDB::Option
 * option_id:integer
 * option_name:varchar(64)
 * option_value:text
