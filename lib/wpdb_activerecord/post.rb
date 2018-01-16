@@ -20,9 +20,9 @@ module WPDB
 
     private
 
-    if Gem::Version.new(Rails::VERSION::STRING) >= Gem::Version.new("5.1.0")
+    if Rails.gem_version >= Gem::Version.new("5.1.0")
       def self.timestamp_attributes_for_update
-        super << :post_modified
+        super << "post_modified"
       end
     else
       def timestamp_attributes_for_update
