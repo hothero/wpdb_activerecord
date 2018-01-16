@@ -17,5 +17,17 @@ module WPDB
     has_many :attachments, -> { where(post_type: "attachment") }, foreign_key: "post_parent", class_name: WPDB.configuration.post_class
     has_many :revisions, -> { where(post_type: "revision") }, foreign_key: "post_parent", class_name: WPDB.configuration.post_class
     has_many :postmetas, foreign_key: "post_id", class_name: WPDB.configuration.postmeta_class
+
+    private
+
+    if Rails.gem_version >= Gem::Version.new("5.1.0")
+      def self.timestamp_attributes_for_update
+        super << "post_modified"
+      end
+    else
+      def timestamp_attributes_for_update
+        super << :post_modified
+      end
+    end
   end
 end
